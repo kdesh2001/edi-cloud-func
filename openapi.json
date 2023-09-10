@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Db2 WA Extensions",
+    "description": "This is a Swagger Connecting WA to a Db2 using Cloud Function",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://us-south.functions.appdomain.cloud",
+      "description": "Dallas, USA"
+    }
+  ],
+  "paths": {
+    "/api/v1/web/85c80f81-b4e9-4353-bd25-1a96ac0eb86a/default/neo4j_connect.json": {
+      "post": {
+        "parameters": [],
+        "summary": "Get EDI parameters",
+        "description": "Get all required EDI parameters",
+        "operationId": "getEDI",
+        "requestBody": {
+          "description": "Payload to get specific edi parameters by means of Cloud Function.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agency": {
+                    "type": "string",
+                    "description": "agency input"
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "version input"
+                  },
+                  "fg": {
+                    "type": "string",
+                    "description": "fg input"
+                  },
+                  "tset": {
+                    "type": "string",
+                    "description": "tset input"
+                  },
+                  "segment": {
+                    "type": "string",
+                    "description": "segment input"
+                  },
+                  "element": {
+                    "type": "string",
+                    "description": "element input"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "code input"
+                  },
+                  "ftype": {
+                    "type": "string",
+                    "description": "ftype input"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name input"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input."
+          }
+        }
+      }
+    }
+  }
+}
